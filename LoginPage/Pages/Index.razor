@@ -47,7 +47,7 @@
     </MudGrid>
 </EditForm>
 @code {
-    dynamic db = new ApplicationDbContext();
+
 
     RegisterAccountForm model = new RegisterAccountForm();
     bool success;
@@ -82,7 +82,12 @@
 
     private async void OnLoginClicked()
     {
-        await db.SaveChangeAsync();
+        var db = new ApplicationDbContext();
+        db.Login.Add(data);
+        await db.SaveChangesAsync();
+        // var data = new ApplicationDbContext();
+        // db.Login.Add(data);
+        // await db.SaveChangeAsync();
     }
 
 }
