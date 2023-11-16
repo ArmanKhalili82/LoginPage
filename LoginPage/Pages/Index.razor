@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using System.ComponentModel.DataAnnotations
-@using LoginPage.Data;
+@using LoginPage.Data; 
+
 
 <PageTitle>Login</PageTitle>
 
@@ -82,6 +83,7 @@
 
     private async void OnLoginClicked()
     {
+        var data = new RegisterAccountForm();
         var db = new ApplicationDbContext();
         db.Login.Add(data);
         await db.SaveChangesAsync();
